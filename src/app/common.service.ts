@@ -9,7 +9,7 @@ export class CommonService {
   constructor(private http : HttpClient) { }
 
   getPosts(){
-    let url= "http://localhost:8000/posts"
+    let url= "http://localhost:3015/posts/888/comments/"
     return this.http.get(url)
   }
   signup(body:any){
@@ -17,7 +17,7 @@ export class CommonService {
     return this.http.get(url)
   }
   login(body:any){
-    let url = "http://localhost:8000/users/"
+    let url = "http://localhost:8000/posts/2/"
     return this.http.get(url)
   }
 }

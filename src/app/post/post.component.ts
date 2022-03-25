@@ -9,14 +9,23 @@ import { Component, OnInit } from '@angular/core';
 export class PostComponent implements OnInit {
 
   posts: any = [];
-
-  constructor(private common:CommonService) {
-    this.common.getPosts().subscribe((response:any) =>{
-      console.log("Response from all Posts api", response)
-      this.posts = response.data
-    },(error)=>{
-      console.log("Error from all Posts api", error)
+  postedBy:any={};
+  comments:any;
+  login(){
+    this.common.login(this.posts).subscribe((response:any)=>{
+      console.log(response)
+      this.posts=response
+      this.postedBy=response.postedBy;
     })
+
+    this.common.login(this.posts).subscribe((response:any)=>{
+      console.log(response)
+      this.comments=response
+
+    })
+  }
+  constructor(private common:CommonService ) {
+
    }
 
   ngOnInit(): void {
