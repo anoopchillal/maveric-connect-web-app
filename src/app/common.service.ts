@@ -16,4 +16,8 @@ export class CommonService {
     let url = "http://localhost:8000/users/"
     return this.http.get(url)
   }
+  login(body:any){
+    let url = "http://localhost:8000/users/"
+    return this.http.get(url)
+  }
 }
