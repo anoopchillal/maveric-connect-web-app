@@ -12,4 +12,8 @@ export class CommonService {
     let url= "http://localhost:8000/posts"
     return this.http.get(url)
   }
+  signup(body:any){
+    let url = "http://localhost:8000/users/"
+    return this.http.get(url)
+  }
 }
