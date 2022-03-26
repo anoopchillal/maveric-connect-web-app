@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthenticationService } from '../authentication.service';
 import { CommonService } from '../common.service';
 
 @Component({
@@ -7,23 +9,31 @@ import { CommonService } from '../common.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  signup: any = {};
+  email = ''
+  password = ''
+  invalidLogin = false
 
-  register() {
-    this.signup = {
-      name: this.signup.name,
-      email: this.signup.email,
-      password: this.signup.password,
-    };
-    console.log(this.signup);
-    this.common.signup(this.signup).subscribe((response: any) => {
-      console.log(response);
-    });
-
-  }
-  constructor(private common: CommonService,) { }
+  @Input() error: string | null | undefined;
+  constructor(private router: Router,
+    private signupservice: AuthenticationService,) { }
 
   ngOnInit(): void {
+  }
+
+  checkSignup() {
+    (this.signupservice.authenticate(this.email, this.password).subscribe(
+      data => {
+        this.router.navigate([''])
+        this.invalidLogin = false
+      },
+      error => {
+        this.invalidLogin = true
+        this.error = error.message;
+
+      }
+    )
+    );
+
   }
 
 }

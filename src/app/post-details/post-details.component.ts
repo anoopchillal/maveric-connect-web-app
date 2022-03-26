@@ -16,8 +16,8 @@ export class PostDetailsComponent implements OnInit {
         commentCounts: '3',
         postedBy: {
           firstName: 'Arun',
-          middleName: 'Chandra',
-          lastName: 'Vihar',
+          middleName: 'C',
+          lastName: 'V',
         }
       },
       {
@@ -25,22 +25,11 @@ export class PostDetailsComponent implements OnInit {
         likeCounts: '10',
         commentCounts: '6',
         postedBy: {
-          firstName: 'John',
-          middleName: 'Wick',
-          lastName: 'BoogeyMan',
+          firstName: 'Sam',
+          middleName: 'K',
+          lastName: 'S',
         }
       },
-      {
-        post:'Sample Post 3',
-        likeCounts: '4',
-        commentCounts: '3',
-        postedBy: {
-          firstName: 'Robert',
-          middleName: 'Bruce',
-          lastName: 'Banner',
-        }
-      }
-
     ];
   }
 

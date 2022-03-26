@@ -8,25 +8,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostComponent implements OnInit {
 
-  posts: any = [];
-  postedBy:any={};
-  comments:any;
-  login(){
-    this.common.login(this.posts).subscribe((response:any)=>{
-      console.log(response)
-      this.posts=response
-      this.postedBy=response.postedBy;
-    })
+  postArray:any;
 
-    this.common.login(this.posts).subscribe((response:any)=>{
-      console.log(response)
-      this.comments=response
-
-    })
+  constructor() {
+    this.postArray= [
+      {
+        post:'Sample Post 1',
+        likeCounts: '32',
+        commentCounts: '3',
+        postedBy: {
+          firstName: 'Arun',
+          middleName: 'C',
+          lastName: 'V',
+        }
+      },
+      {
+        post:'Sample Post 2',
+        likeCounts: '10',
+        commentCounts: '6',
+        postedBy: {
+          firstName: 'Sam',
+          middleName: 'K',
+          lastName: 'S',
+        }
+      },
+    ];
   }
-  constructor(private common:CommonService ) {
-
-   }
 
   ngOnInit(): void {
   }
